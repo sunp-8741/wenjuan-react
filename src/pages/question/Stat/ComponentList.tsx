@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import * as classNames from 'classnames'
 import useGetComponentInfo from '@/hooks/useGetComponentInfo.ts'
 import { getComponentConfByType } from '@/components/QuestionComponents'

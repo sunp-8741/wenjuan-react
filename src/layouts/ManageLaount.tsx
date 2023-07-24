@@ -8,11 +8,7 @@ import { useRequest } from 'ahooks'
 export const ManageLayout: FC = () => {
   const nav = useNavigate()
   const { pathname } = useLocation()
-  const {
-    loading,
-    error,
-    run: onCreateClick,
-  } = useRequest(createQuestionService, {
+  const { loading, run: onCreateClick } = useRequest(createQuestionService, {
     manual: true,
     onSuccess(result) {
       nav(`/question/edit/${result.id}`)

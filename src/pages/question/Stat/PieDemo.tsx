@@ -22,7 +22,7 @@ export const PieDemo: FC = () => {
             outerRadius={50}
             label={i => `${i.name}: ${i.value}`}
           >
-            {data01.map((i, index) => {
+            {data01.map((_, index) => {
               return <Cell key={index} fill={STAT_COLORS[index]} />
             })}
           </Pie>

@@ -1,5 +1,5 @@
-import { FC, useState } from 'react'
-import { Empty, Pagination, Spin, Typography } from 'antd'
+import { FC } from 'react'
+import { Spin, Typography } from 'antd'
 import { QuestionCard } from '@/components/QuestionCard.tsx'
 import { ListSearch } from '@/components/ListSearch.tsx'
 import useLoadQuestionListData from '@/hooks/useLoadQuestionListData.ts'

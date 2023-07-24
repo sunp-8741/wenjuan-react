@@ -22,7 +22,7 @@ export const pageInfoSlice = createSlice({
   name: 'pageInfo',
   initialState: INIT_STATE,
   reducers: {
-    resetPageInfo: (state: PageInfoType, action: PayloadAction<PageInfoType>) => {
+    resetPageInfo: (_, action: PayloadAction<PageInfoType>) => {
       return action.payload
     },
     // 修改标题

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, KeyboardEvent, useState } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
 import { Button, Input, message, Space, Typography } from 'antd'
 import { EditOutlined, LeftOutlined, LoadingOutlined } from '@ant-design/icons'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -55,7 +55,7 @@ const SaveButton: FC = () => {
       },
     }
   )
-  useKeyPress(['ctrl.s', 'meta.s'], (event: KeyboardEvent) => {
+  useKeyPress(['ctrl.s', 'meta.s'], event => {
     event.preventDefault()
     if (loading) return
     onSave()
