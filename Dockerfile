@@ -7,7 +7,7 @@ ENV NODE_ENV production
 WORKDIR /code
 
 ADD package.json /code
-RUN npm install --production
+RUN npm config set registry https://registry.npm.taobao.org/ && npm i
 
 ADD . /code
 RUN npm run build
