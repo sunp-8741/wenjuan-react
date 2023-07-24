@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Button, Divider, message, Modal, Popconfirm, Space, Tag } from 'antd'
+import { Button, Divider, message, Popconfirm, Space, Tag } from 'antd'
 import {
   CopyOutlined,
   DeleteOutlined,

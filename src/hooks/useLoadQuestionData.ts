@@ -1,14 +1,33 @@
 import { useParams } from 'react-router-dom'
 import { getQuestionService } from '@/services/question.ts'
 import { useRequest } from 'ahooks'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { resetComponents } from '@/store/componentsReducer'
+import { resetPageInfo } from '@/store/PageInfoReducer.ts'
 
 function useLoadQuestionData() {
   const { id = '' } = useParams()
-  async function load() {
+  const dispatch = useDispatch()
+  const { run, data, loading, error } = useRequest(async (id: string) => {
+    if (!id) throw new Error('没有问卷id')
     return await getQuestionService(id)
-  }
-  const { loading, data, error } = useRequest(load)
-  return { loading, data, error }
+  })
+
+  useEffect(() => {
+    if (!data) return
+    const { componentList = [], title = '', desc = '', js = '', css = '', isPublished } = data
+    let selectedId = ''
+    if (componentList.length) {
+      selectedId = componentList[0].fe_id
+    }
+    dispatch(resetComponents({ componentList, selectedId, copiedComponent: null }))
+    dispatch(resetPageInfo({ title, desc, js, css, isPublished }))
+  }, [data])
+  useEffect(() => {
+    run(id)
+  }, [id])
+  return { loading, error }
 }
 
 export default useLoadQuestionData

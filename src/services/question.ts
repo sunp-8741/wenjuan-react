@@ -1,7 +1,6 @@
 import axios, { ResDataType } from './ajax.ts'
-import { IQuestion } from '@/types/question.ts'
 
-type SearchOption = {
+export type SearchOption = {
   keyword: string
   isStar: boolean
   isDeleted: boolean
@@ -23,8 +22,8 @@ export async function getQuestionListService(params: Partial<SearchOption>) {
 }
 
 // 更新问卷
-export async function updateQuestionService(id: string, data: Partial<IQuestion>) {
-  return (await axios.patch(`/api/question/${id}`, data)) as ResDataType
+export async function updateQuestionService(id: string, opt: { [key: string]: any }) {
+  return (await axios.patch(`/api/question/${id}`, opt)) as ResDataType
 }
 
 // 复制问卷

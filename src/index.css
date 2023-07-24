@@ -3,3 +3,7 @@
 .center-container {
     @apply flex justify-center items-center flex-col [min-height:calc(100vh_-_64px_-_65px)]
 }
+
+div[role="button"] {
+    outline: 0;
+}

@@ -1,13 +1,14 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
+import useLoadUserData from '@/hooks/useLoadUserData.ts'
+import useNavPage from '@/hooks/useNavPage.ts'
 
 export const QuestionLayout: FC = () => {
+  const { waitingUserData } = useLoadUserData()
+  useNavPage(waitingUserData)
   return (
-    <div className="flex py-6 w-[1200px] mx-auto my-0">
-      <div className="w-[120px]">Question layout left</div>
-      <div className="flex-1 ml-[60px]">
-        <Outlet />
-      </div>
+    <div className="h-screen">
+      <div className="flex-1">{!waitingUserData && <Outlet />}</div>
     </div>
   )
 }
