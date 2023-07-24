@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:16-alpine as builder
 
 ENV PROJECT_ENV production
 ENV NODE_ENV production
