@@ -1,15 +1,7 @@
-// import { useState } from 'react'
-import './App.css'
-
-import { TodoList } from './pages/TodoList.tsx'
-
+import { RouterProvider } from 'react-router-dom'
+import { router } from '@/router'
 function App() {
-  return (
-    <>
-      {/*<Count />*/}
-      <TodoList />
-    </>
-  )
+  return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App
