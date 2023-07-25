@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import useGetComponentInfo from '@/hooks/useGetComponentInfo.ts'
 import { getComponentConfByType } from '@/components/QuestionComponents'
 import '../Edit/canvas.scss'

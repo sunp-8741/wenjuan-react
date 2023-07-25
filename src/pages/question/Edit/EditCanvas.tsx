@@ -5,6 +5,7 @@ import useGetComponentInfo from '@/hooks/useGetComponentInfo.ts'
 import { changeSelectedId, ComponentInfoType, moveComponent } from '@/store/componentsReducer'
 import { getComponentConfByType } from '@/components/QuestionComponents'
 import { useDispatch } from 'react-redux'
+import classNames from 'classnames'
 import useBindCanvasKeyPress from '@/hooks/useBindCanvasKeyPress.ts'
 import { SortableContainer } from '@/components/DragSortable/SortableContainer.tsx'
 import { SortableItem } from '@/components/DragSortable/SortableItem.tsx'
@@ -55,14 +56,14 @@ export const EditCanvas: FC<PropsType> = ({ loading }) => {
           .filter(c => !c.isHidden)
           .map(c => {
             const { fe_id, isLocked } = c
+            const wrapperClassnames = classNames({
+              'component-wrapper': true,
+              selected: fe_id === selectedId,
+              locked: isLocked,
+            })
             return (
               <SortableItem id={fe_id}>
-                <div
-                  className={`component-wrapper ${isLocked ? 'locked' : ''} ${
-                    fe_id === selectedId ? 'selected' : ''
-                  }`}
-                  onClick={e => onClickComponent(e, fe_id)}
-                >
+                <div className={wrapperClassnames} onClick={e => onClickComponent(e, fe_id)}>
                   <div className="pointer-events-none">{genComponent(c)}</div>
                 </div>
               </SortableItem>
